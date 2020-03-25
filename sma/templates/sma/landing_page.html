@@ -1,0 +1,43 @@
+{% extends 'sma/base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+{%block body_content%}
+<div class="text-center">
+    <h1>Welcome to Omaha Mentor for Kids</h1>
+</div>
+
+<div>
+    {% if request.user.role == "staff" %}
+    <h2> Welcome Staff</h2>
+    {% endif %}
+
+    {% if request.user.role == "mentor" %}
+    <h2> Welcome Mentor, </h2>
+        <div class="page-container">
+            <p>Please choose from below options.</p>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="thumbnail">
+                                        <img src="{% static "images/session.PNG" %}" alt="session" width="250" height="250"/>
+                                        <div class="caption">
+                                            <p><a class="btn btn-primary" href="{% url 'sma:session_list' %}" role="button">View Sessions</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock body_content%}
