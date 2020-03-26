@@ -45,10 +45,10 @@ class AttendanceList(admin.ModelAdmin):
     ordering = ['attendance_session_ID']
 
 class UserList(admin.ModelAdmin):
-    list_display = ('first_name','last_name', 'email','username','is_active','created_on','role','is_staff','is_member')
-    list_filter = ('first_name','last_name', 'email','username','is_active','created_on','role','is_staff','is_member')
-    search_fields = ('first_name','last_name', 'email','username','is_active','created_on','role','is_staff','is_member')
-    ordering = ['first_name']
+    list_display = ( 'email','username','is_active','created_on','role','is_staff','is_mentor')
+    list_filter = ( 'email','username','is_active','created_on','role','is_staff','is_mentor')
+    search_fields = ('email','username','is_active','created_on','role','is_staff','is_mentor')
+    ordering = ['email']
 
 
 admin.site.register(School,SchoolList)

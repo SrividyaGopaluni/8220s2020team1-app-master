@@ -7,8 +7,7 @@ from sma.utils import ROLES, ATTENDANCE
 # Create your models here.
 
 class User(AbstractBaseUser, PermissionsMixin):
-    first_name = models.CharField(max_length=100, null=True)
-    last_name = models.CharField(max_length=100, null=True)
+
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=100, blank=True, null=True)
     nickname = models.CharField(max_length=100, null=True)
