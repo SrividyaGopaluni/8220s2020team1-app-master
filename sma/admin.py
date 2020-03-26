@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import School,Grade,Student,Mentor,Student_Group_Mentor_Assignment,Session_Schedule,Attendance
+from .models import School,Grade,Student,Mentor,Student_Group_Mentor_Assignment,Session_Schedule,Attendance,User
 
 # Register your models here.
 class SchoolList(admin.ModelAdmin):
@@ -44,6 +44,13 @@ class AttendanceList(admin.ModelAdmin):
     search_fields = ('attendance_student_id','attendance_grade_id','attendance_mentor_id','attendance_session_ID','attendance_ID')
     ordering = ['attendance_session_ID']
 
+class UserList(admin.ModelAdmin):
+    list_display = ('first_name','last_name', 'email','username','is_active','created_on','role','is_staff','is_member')
+    list_filter = ('first_name','last_name', 'email','username','is_active','created_on','role','is_staff','is_member')
+    search_fields = ('first_name','last_name', 'email','username','is_active','created_on','role','is_staff','is_member')
+    ordering = ['first_name']
+
+
 admin.site.register(School,SchoolList)
 admin.site.register(Grade,GradeList)
 admin.site.register(Student,StudentList)
@@ -51,6 +58,8 @@ admin.site.register(Mentor,MentorList)
 admin.site.register(Student_Group_Mentor_Assignment,GroupMentorAssignmentList)
 admin.site.register(Session_Schedule,SessionScheduleList)
 admin.site.register(Attendance,AttendanceList)
+admin.site.register(User,UserList)
+
 
 
 
