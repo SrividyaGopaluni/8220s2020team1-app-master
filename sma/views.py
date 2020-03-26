@@ -184,38 +184,7 @@ def session_details(request,pk):
     On sgm.grade_id=g.id\
     inner join sma_student s\
     On s.grade_id=g.id")
-
     row = cursor.fetchall()
-    print(row)
-    '''appointentform = CHOICES(request.POST)
-    if appointentform.is_valid():
-        selected = appointentform.cleaned_data.get("NUMS")
-        print(selected)
-
-
-        #attendancevalue = str(request.POST["attendancevalue"])
-    return render(request,'sma/session_details.html',{'appointentform':appointentform})'''
-
-
-
-    #session = Session_Schedule.objects.select_related('group').filter(group__group_icontains='Group')
-    #print(session)
     return render(request, 'sma/session_details.html',{'session_details': row})
 
 
-
-
-
-'''def session_listdetails(request,pk):
-    queryset = Session_Schedule.objects.all().select_related('group')
-    raja = my_custom_sql('my_custom_sql')
-    print (raja , "*******************Raja Testing**********************")
-    return render(request,'sma/session_details.html',{'session_details': queryset})
-
-def my_custom_sql(self):
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT * FROM session_schedule WHERE group = %s", [self.raja])
-        row = cursor.fetchone()
-    return row'''
-''' raja = my_custom_sql('Group 1')
- print (raja , "*******************Raja Testing**********************")'''

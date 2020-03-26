@@ -43,13 +43,3 @@ class SessionForm(forms.ModelForm):
         model = Session_Schedule
         fields = ('session_name','session_location')
 
-
-
-
-NUMS= [
-    ('present', 'present'),
-    ('late', 'late'),
-    ('absent', 'absent'),
-    ]
-class CHOICES(forms.Form):
-    NUMS = forms.CharField(widget=forms.RadioSelect(choices=NUMS))
